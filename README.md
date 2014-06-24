@@ -4,7 +4,8 @@
 
 I need to track time.  
 I never remember to track my time.  
-I tried things that tracked every minute of my day, but that just made more data.  
+I tried things that tracked every minute of my day,
+but that just made more data.  
 All I need to know is, roughly  
 What the heck did I do each day,  
 And for roughly how long?  
