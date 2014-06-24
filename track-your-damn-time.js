@@ -11,7 +11,6 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-
 if (process.argv[2] === 'log') {
     var glob = require('glob');
     var colors = require('colors');
@@ -81,7 +80,7 @@ function checkAndPopulate(date, dataDir, done) {
         getTimesFromPrompt(date, function (err, results) {
             if (err) return console.log('Nothing entered for', date);
 
-            fs.writeFile(makeFilename(date, dataDir), results.join('\n'), done);
+            fs.writeFile(makeFilename(date, dataDir), results.join('\n') + '\n', done);
         });
     });
 }
