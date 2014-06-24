@@ -32,6 +32,8 @@ Every time I open my terminal, if there is missing time in my time tracking, tra
 
 ![](https://i.cloudup.com/gyb_fTR0Ep-3000x3000.png)
 
+It starts 3 days ago, ignores weekends, and will only ask you what you did _today_ after 4pm.
+
 It stores the information in simple text files, and I can see the full list with `track-your-damn-time log`.
 
 ## Installation
