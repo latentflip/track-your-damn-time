@@ -95,9 +95,8 @@ function checkDatesFrom(start, dataDir, done) {
     if (start.isAfter(moment())) return done();
 
     //Do today if after 4pm
-    if (start.isSame(moment(), 'day') && moment().hour() < 16) return done();
+    if (start.isSame(moment(), 'day') && moment().hour() >= 16) return done();
 
-    //console.log('Checking', humanizeDate(start));
     checkAndPopulate(start, dataDir, function (err) {
         if (err) throw err;
         checkDatesFrom(start.clone().add({ days: 1 }), dataDir, done);
