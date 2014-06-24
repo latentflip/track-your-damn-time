@@ -9,7 +9,7 @@ npm install -g track-your-damn-time
 Then add this to your .bashrc/.zshrc
 
 ```
-track-your-damn-time /Users/<your username>/Documents/TimeTracking 2013-06-24
+track-your-damn-time /Users/<your username>/Documents/TimeTracking 2014-06-24
 ```
 
 * **The path:** Must be absolute, and must exist.

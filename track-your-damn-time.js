@@ -11,26 +11,18 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
+dataDir = process.argv[2];
+start = moment(process.argv[3] || "2014-06-20", 'YYYY-MM-DD');
+
 if (process.argv[2] === 'log') {
-    var glob = require('glob');
-    var colors = require('colors');
+    var log = require('./lib/logData');
+    dataDir = process.argv[3];
 
-    console.log('');
-
-    glob(dataDir + '/**/*.txt', function (err, files) {
-        files.forEach(function (f) {
-            var date = path.basename(f, '.txt');
-            console.log(moment(date).format('ddd, Do MMM YYYY').bold);
-            console.log(fs.readFileSync(f).toString());
-            console.log('');
-        });
+    log(dataDir, function (err) {
         process.exit(0);
     });
 
     return;
-} else {
-    dataDir = process.argv[2];
-    start = moment(process.argv[3] || "2014-06-20");
 }
 
 function dataExistsForDate(date, dataDir, done) {
@@ -78,7 +70,10 @@ function checkAndPopulate(date, dataDir, done) {
         if (exists) return done();
 
         getTimesFromPrompt(date, function (err, results) {
-            if (err) return console.log('Nothing entered for', date);
+            if (err) {
+                console.log('Nothing entered for', date.toString());
+                return done();
+            }
 
             fs.writeFile(makeFilename(date, dataDir), results.join('\n') + '\n', done);
         });
@@ -95,7 +90,7 @@ function checkDatesFrom(start, dataDir, done) {
     if (start.isAfter(moment())) return done();
 
     //Do today if after 4pm
-    if (start.isSame(moment(), 'day') && moment().hour() >= 16) return done();
+    if (start.isSame(moment(), 'day') && moment().hour() < 16) return done();
 
     checkAndPopulate(start, dataDir, function (err) {
         if (err) throw err;
