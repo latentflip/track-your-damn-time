@@ -18,12 +18,21 @@ if (process.argv[2] === 'log') {
     var log = require('./lib/logData');
     dataDir = process.argv[3];
 
-    log(dataDir, function (err) {
-        process.exit(0);
+    withConfig(rl, function (config) {
+        log(config.dataDir, function (err) {
+            process.exit(0);
+        });
     });
 
     return;
 }
+var withConfig = require('./lib/config');
+
+withConfig(rl, function (config) {
+    checkDatesFrom(moment().subtract({ days: 3 }), config.dataDir, function () {
+        process.exit(0);
+    });
+});
 
 function dataExistsForDate(date, dataDir, done) {
     var p = makeFilename(date, dataDir);
@@ -98,9 +107,6 @@ function checkDatesFrom(start, dataDir, done) {
     });
 }
 
-checkDatesFrom(start, dataDir, function () {
-    process.exit(0);
-});
 
 function humanizeDate(date) {
     return date.calendar().split(' at ')[0];

@@ -9,13 +9,14 @@ npm install -g track-your-damn-time
 Then add this to your .bashrc/.zshrc
 
 ```
-track-your-damn-time /Users/<your username>/Documents/TimeTracking 2014-06-24
+track-your-damn-time
 ```
 
-* **The path:** Must be absolute, and must exist.
-* **The date:** Is the date you want it to start tracking time from.
+The first time it will ask you for a path to store the files in.
 
 ## Logging
+
+To easily output your time tracking log, run:
 
 ```
 track-your-damn-time log
