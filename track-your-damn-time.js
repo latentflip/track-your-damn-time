@@ -4,19 +4,15 @@ var path = require('path');
 var fs = require('fs');
 var moment = require('moment');
 var readline = require('readline');
-var today = moment();
+var withConfig = require('./lib/config');
 
 var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-dataDir = process.argv[2];
-start = moment(process.argv[3] || "2014-06-20", 'YYYY-MM-DD');
-
 if (process.argv[2] === 'log') {
     var log = require('./lib/logData');
-    dataDir = process.argv[3];
 
     withConfig(rl, function (config) {
         log(config.dataDir, function (err) {
@@ -26,10 +22,9 @@ if (process.argv[2] === 'log') {
 
     return;
 }
-var withConfig = require('./lib/config');
 
 withConfig(rl, function (config) {
-    checkDatesFrom(moment().subtract({ days: 3 }), config.dataDir, function () {
+    checkDatesFrom(moment(config.startDate), config.dataDir, function () {
         process.exit(0);
     });
 });
