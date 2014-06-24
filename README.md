@@ -2,28 +2,28 @@
 
 **A poem:**
 
-I need to track time.
-I never remember to track my time.
-I tried things that tracked every minute of my day, but that just made more data.
-All I need to know is, roughly
-What the heck did I do each day,
-And for roughly how long?
+I need to track time.  
+I never remember to track my time.  
+I tried things that tracked every minute of my day, but that just made more data.  
+All I need to know is, roughly  
+What the heck did I do each day,  
+And for roughly how long?  
 
-If I could remember to go to freshbooks,
-And write those things down every day,
-I would have no worries,
-But I don't and I then have to try and remember what I did,
-A month ago.
+If I could remember to go to freshbooks,  
+And write those things down every day,  
+I would have no worries,  
+But I don't and I then have to try and remember what I did,  
+A month ago.  
 
-So I needed something that,
-Would ask me every day,
-"Yo, what the heck did you do yesterday?",
-And save it somewhere.
+So I needed something that,  
+Would ask me every day,  
+"Yo, what the heck did you do yesterday?",  
+And save it somewhere.  
 
-So that when I need to update freshbooks,
-I don't have to get creative.
+So that when I need to update freshbooks,  
+I don't have to get creative.  
 
-This is that thing.
+This is that thing.  
 
 ## What?
 
