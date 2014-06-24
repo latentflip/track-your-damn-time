@@ -4,7 +4,6 @@ var path = require('path');
 var fs = require('fs');
 var moment = require('moment');
 var readline = require('readline');
-var start = moment("2014-06-20");
 var today = moment();
 
 var rl = readline.createInterface({
@@ -12,8 +11,28 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-var dataDir = '/Users/latentflip/Documents/TimeTracking';
 
+if (process.argv[2] === 'log') {
+    var glob = require('glob');
+    var colors = require('colors');
+
+    console.log('');
+
+    glob(dataDir + '/**/*.txt', function (err, files) {
+        files.forEach(function (f) {
+            var date = path.basename(f, '.txt');
+            console.log(moment(date).format('ddd, Do MMM YYYY').bold);
+            console.log(fs.readFileSync(f).toString());
+            console.log('');
+        });
+        process.exit(0);
+    });
+
+    return;
+} else {
+    dataDir = process.argv[2];
+    start = moment(process.argv[3] || "2014-06-20");
+}
 
 function dataExistsForDate(date, dataDir, done) {
     var p = makeFilename(date, dataDir);
@@ -21,7 +40,7 @@ function dataExistsForDate(date, dataDir, done) {
 }
 
 function getTimesFromPrompt(date, done) {
-    var day = date.calendar().split(' at ')[0];
+    var day = humanizeDate(date);
     var answers = [];
 
     rl.question("What the heck did you do " + day + "? (hours - task) ", function (answer) {
