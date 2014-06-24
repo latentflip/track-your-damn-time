@@ -13,7 +13,8 @@ And for roughly how long?
 If I could remember to go to freshbooks,  
 And write those things down every day,  
 I would have no worries,  
-But I don't and I then have to try and remember what I did,  
+But I don't.
+And I then have to try and remember what I did,  
 A month ago.  
 
 So I needed something that,  
