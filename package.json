@@ -1,6 +1,6 @@
 {
   "name": "track-your-damn-time",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
