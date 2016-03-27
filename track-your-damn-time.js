@@ -66,7 +66,7 @@ function getMoreTimes(done) {
 }
 
 function makeFilename(date, dataDir) {
-    return path.join(dataDir, date.format("YYYY-MM-DD.txt"));
+    return path.join(dataDir, date.format("YYYY-MM-DD") + ".txt");
 }
 
 function checkAndPopulate(date, dataDir, done) {
